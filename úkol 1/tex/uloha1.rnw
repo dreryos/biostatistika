@@ -1,0 +1,49 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fancyhdr}
+\usepackage[paper=a4paper, nomarginpar, foot=1.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{siunitx}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{Marek Földi}
+\fancyhead[RE,LO]{Úkol 1}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+
+\begin{document}
+Načteme dataset "studenti20.RData".
+
+<<cache=TRUE>>=
+load("C:\\Users\\marek\\Desktop\\biostatistika\\úkol 1\\studenti20.RData")
+attach(studenti20) #zjednodušíme si práci s daty
+@
+
+<<cache=TRUE, include=FALSE>>=
+library(Rcmdr)
+@
+\subsection*{Příklad 1:}
+<<pr1, cache=TRUE>>=
+mean(zapesti.leve)
+median(zapesti.leve)
+quantile(zapesti.leve)
+sd(zapesti.leve)
+mean(bota)
+median(bota)
+quantile(bota)
+sd(bota)
+@
+
+Průměr šířky levého zápěstí je $157,79$~\si{\milli\metre}, medián je $155$~\si{\milli\metre}, první kvartily $150$~\si{\milli\metre}, třetí kvartil $165$~\si{\milli\metre} a směrodatná odchylka je $12,39$. Průměr velikosti bot je $40,05$, medián je $39$, první kvartil $38$, třetí kvartil $42$ a směrodatná odchylka je $2,71$.
+
+\subsection*{Příklad 2:}
+<<pr2, cache=TRUE, fig.cap="Závislost mezi velikostí bot a velikosti zápěstí">>=
+cor(zapesti.leve, bota)
+scatterplot(zapesti.leve~bota, regLine=TRUE, smooth=FALSE, boxplots=FALSE)
+@
+
+Velikost zápěstí a velikost bot mají 67.78 \% korelaci
+
+\subsection*{Příklad 3:}
+\end{document}
