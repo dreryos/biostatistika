@@ -1,9 +1,27 @@
-#Načtení dat
-this.dir <- dirname(parent.frame(2)$ofile) #přeřazení workingdir
-setwd(this.dir)
-load("studenti20.RData") # načtení samotných dat
+## ---- nacteni
+load("C:\\Users\\marek\\Desktop\\biostatistika\\úkol 1\\studenti20.RData")
 attach(studenti20)
 
-#1 Uveďte základní popisné statistiky pro velikost boty a šířku levého zápěstí (průměr, medián, kvartily, směrodatná odchylka).
-Sum_zapL <- summary(zapesti.leve)
-Sum_boty <- summary(bota)
+library(Rcmdr)
+
+## ---- pr1
+mean(zapesti.leve)
+median(zapesti.leve)
+quantile(zapesti.leve)
+sd(zapesti.leve)
+mean(bota)
+median(bota)
+quantile(bota)
+sd(bota)
+
+## ---- pr2
+cor(zapesti.leve, bota)
+
+## ---- plot2
+scatterplot(zapesti.leve~bota, regLine=TRUE, smooth=FALSE, boxplots=FALSE)
+
+## ---- pr3
+tapply(zapesti.leve, pohlavi, summary)
+
+## ---- plot3
+plotMeans(zapesti.leve, pohlavi, error.bars="se", main="", connect=FALSE)

@@ -33,8 +33,8 @@ Průměr šířky levého zápěstí je 157,79~\si{\milli\metre}, medián je 155
 <<pr2>>=
 @
 
-Z~korelačního koeficientu můžeme říct, že hodnoty na sobě pozitivně závisí a je u~nich středně těsná závislost. Závislost můžeme také pozorovat na grafu č. \ref{fig:plot2}.
-<<plot2, fig.pos="h", fig.cap="Závislost mezi velikostí bot a velikosti zápěstí">>=
+Z korelačního koeficientu můžeme říct, že hodnoty na sobě pozitivně závisí a je u nich středně těsná závislost. Závislost můžeme také pozorovat na grafu č.1.
+<<plot2,fig.pos="h", fig.cap="Závislost mezi velikostí bot a velikosti zápěstí">>=
 @
 
 
@@ -42,9 +42,9 @@ Z~korelačního koeficientu můžeme říct, že hodnoty na sobě pozitivně zá
 \subsection*{Příklad 3:}
 <<pr3>>=
 @
-Průměry velikosti zápěstí se mezi pohlavími liší. U~mužů je větší než u~žen. Graficky můžeme znázornit pomocí \emph{plot of means} viz. graf č. \ref{fig:plot3}.
+Průměry velikosti zápěstí se mezi pohlavími liší. U mužů je větší než u žen. Graficky můžeme znázornit pomocí \emph{plot of means} viz. graf č. 3.
 
-<<plot3, fig.pos="h", fig.cap="Závislost mezi velikostí bot a velikosti zápěstí">>=
+<<plot3, fig.cap="Závislost mezi velikostí bot a velikosti zápěstí">>=
 @
 
 
