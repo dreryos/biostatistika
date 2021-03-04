@@ -61,7 +61,7 @@ U~žen je korelace vyšší a to 0,40. U~mužů je korelace menší a to 0,25. U
 <<pr5>>=
 @
 
-Sportu se nevěnuje 19 studentů, hodinu až dvě sportu věnuje 39 studentů, 57 studentů věnuje sportu mezi dvěma a půl hodinou až pěti hodinami, 24 student věnuje sportu mezi pět a půl až patnácti hodinami. Rozdělení studentů mžeme pozorovat na \emph{barplot}, viz. graf. č. \ref{fig:plot5}.
+Sportu se nevěnuje 19 studentů, hodinu až dvě týdně sportu věnuje 39 studentů, 57 studentů věnuje sportu mezi dvěma a půl hodinou až pěti hodinami týdně, 24 studentů věnuje sportu mezi pět a půl až patnácti hodinami týdně. Rozdělení studentů mžeme pozorovat na \emph{barplot}, viz. graf. č. \ref{fig:plot5}.
 
 <<plot5, fig.pos="h", fig.cap="Rozdělní studentů podle počtu hodin sportovních aktivit týdně">>=
 @
@@ -71,7 +71,7 @@ Sportu se nevěnuje 19 studentů, hodinu až dvě sportu věnuje 39 studentů, 5
 <<pr6>>=
 @
 
-Průměr tepové frekvenci v~klidu po 1 minutu klesá s~rostoucím počtem hodin věnovaných sportu. Rozdíly v~průměrech jsou pozorovatelné na \emph{plot of means}, viz. graf. č. \ref{fig:plot6}.
+Průměr tepové frekvenci v~klidu po 1 minutu klesá s~rostoucím počtem hodin týdně věnovaných sportu. Rozdíly v~průměrech jsou pozorovatelné na \emph{plot of means}, viz. graf. č. \ref{fig:plot6}.
 
 <<plot6, fig.pos="h", fig.cap="Závislost tepové frekvence a počtu hodin sportovních aktivit týdně">>=
 @
@@ -80,7 +80,7 @@ Průměr tepové frekvenci v~klidu po 1 minutu klesá s~rostoucím počtem hodin
 <<pr7>>=
 @
 
-Hře na hudební nástroj se více věnují studenti, kteří věnují sportu pod dvě hodiny, avšak studenti, kteří se nevěnují sportu vůbec hrají na hudební nástroje méně než studenti, kteří sportu věnují hodinu až dvě. U~studentů, kteří se sportu věnují nad dvě a půl hodiny je zastoupení studentů hrajících na hudební nástroj podobný. Zastoupení studentů hrající na hudební nástroj a studentů nehrající můžeme pozorovat na grafu č. \ref{fig:plot7}.
+Hře na hudební nástroj se více věnují studenti, kteří věnují sportu pod dvě hodiny týdně, avšak studenti, kteří se nevěnují sportu vůbec hrají na hudební nástroje méně než studenti, kteří sportu věnují hodinu až dvě týdně . U~studentů, kteří se sportu věnují nad dvě a půl hodiny týdně je zastoupení studentů hrajících na hudební nástroj podobný. Zastoupení studentů hrající na hudební nástroj a studentů nehrající můžeme pozorovat na grafu č. \ref{fig:plot7}.
 
 <<plot7, fig.pos="h", fig.cap="Závislost počtu hodin sportovních aktivit a hraním na hudební nástroj">>=
 @
