@@ -20,6 +20,7 @@ library(knitr)
 read_chunk("C:\\Users\\marek\\Desktop\\biostatistika\\úkol 1\\ukol1.R")
 @
 
+
 <<nacteni, include=FALSE>>=
 @
 
@@ -33,8 +34,8 @@ Průměr šířky levého zápěstí je 157,79~\si{\milli\metre}, medián je 155
 <<pr2>>=
 @
 
-Z korelačního koeficientu můžeme říct, že hodnoty na sobě pozitivně závisí a je u nich středně těsná závislost. Závislost můžeme také pozorovat na grafu č.1.
-<<plot2,fig.pos="h", fig.cap="Závislost mezi velikostí bot a velikosti zápěstí">>=
+Z~korelačního koeficientu můžeme říct, že hodnoty na sobě pozitivně závisí. Závislost můžeme také pozorovat na \emph{scatterplot}, viz. grafu č. \ref{fig:plot2}.
+<<plot2, fig.pos="h", fig.cap="Závislost mezi velikostí bot a velikosti zápěstí">>=
 @
 
 
@@ -42,11 +43,48 @@ Z korelačního koeficientu můžeme říct, že hodnoty na sobě pozitivně zá
 \subsection*{Příklad 3:}
 <<pr3>>=
 @
-Průměry velikosti zápěstí se mezi pohlavími liší. U mužů je větší než u žen. Graficky můžeme znázornit pomocí \emph{plot of means} viz. graf č. 3.
+V~testovaném souboru je 103 žen a 37 mužů. Průměry velikosti zápěstí se mezi pohlavím liší. U~mužů je větší než u~žen. Rozdíl průměrů můžeme sledovat i na \emph{plot of means}, viz. graf č. \ref{fig:plot3}.
 
-<<plot3, fig.cap="Závislost mezi velikostí bot a velikosti zápěstí">>=
+<<plot3, fig.pos="h", fig.cap="Závislost mezi pohlavím a velikosti zápěstí">>=
 @
 
+\newpage
+\subsection*{Příklad 4:}
+<<pr4>>=
+@
+U~žen je korelace vyšší a to 0,40. U~mužů je korelace menší a to 0,25. U~obou pohlaví je závislost kladná. Rozdíly v~korelaci můžeme pozorovat i na \emph{scatterplot}, viz. graf č. \ref{fig:plot4}
+
+<<plot4, fig.pos="h", fig.cap="Závislost mezi velikostí bot a velikosti zápěstí pro pohlaví odděleně">>=
+@
+
+\subsection*{Příklad 5:}
+<<pr5>>=
+@
+
+Sportu se nevěnuje 19 studentů, hodinu až dvě sportu věnuje 39 studentů, 57 studentů věnuje sportu mezi dvěma a půl hodinou až pěti hodinami, 24 student věnuje sportu mezi pět a půl až patnácti hodinami. Rozdělení studentů mžeme pozorovat na \emph{barplot}, viz. graf. č. \ref{fig:plot5}.
+
+<<plot5, fig.pos="h", fig.cap="Rozdělní studentů podle počtu hodin sportovních aktivit týdně">>=
+@
 
 \newpage
+\subsection*{Příklad 6:}
+<<pr6>>=
+@
+
+Průměr tepové frekvenci v~klidu po 1 minutu klesá s~rostoucím počtem hodin věnovaných sportu. Rozdíly v průměrech jsou pozorovatelné na \emph{plot of means}, viz. graf. č. \ref{fig:plot6}.
+
+<<plot6, fig.pos="h", fig.cap="Závislost tepové frekvence a počtu hodin sportovních aktivit týdně">>=
+@
+\newpage
+\subsection*{Příklad 7:}
+<<pr7>>=
+@
+
+Hře na hudební nástroj se více věnují studenti, kteří věnují sportu pod dvě hodiny, avšak studenti, kteří se nevěnují sportu vůbec hrají na hudební nástroje méně než studenti, kteří sportu věnují hodinu až dvě. U~studentů, kteří se sportu věnují nad dvě a půl hodiny je zastoupení studentů hrajících na hudební nástroj podobný. Zastoupení studentů hrající na hudební nástroj a studentů nehrající můžeme pozorovat na grafu č. \ref{fig:plot7}.
+
+<<plot7, fig.pos="t", fig.cap="Závislost počtu hodin sportovních aktivit a hraním na hudební nástroj">>=
+@
+
+\newpage
+~
 \end{document}
