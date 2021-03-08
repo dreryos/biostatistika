@@ -51,23 +51,28 @@
 \usepackage{alltt}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{dcolumn}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsfonts}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 You can type R commands in your \LaTeX{} document and they will be properly run and the output printed in the document.
 
+
+
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlcom{# Create a sequence of numbers}
-\hlstd{X} \hlkwb{=} \hlnum{2}\hlopt{:}\hlnum{10}
-
-\hlcom{# Display basic statistical measures}
-\hlkwd{summary}\hlstd{(X)}
+\hlkwd{library}\hlstd{(tikzDevice)}
+\hlstd{knitr}\hlopt{::}\hlstd{opts_chunk}\hlopt{$}\hlkwd{set}\hlstd{(}\hlkwc{dev}\hlstd{=}\hlstr{"tikz"}\hlstd{)}
+\hlkwd{load}\hlstd{(}\hlstr{"C:\textbackslash{}\textbackslash{}Users\textbackslash{}\textbackslash{}marek\textbackslash{}\textbackslash{}Desktop\textbackslash{}\textbackslash{}biostatistika\textbackslash{}\textbackslash{}ukol1\textbackslash{}\textbackslash{}studenti20.RData"}\hlstd{)}
+\hlkwd{attach}\hlstd{(studenti20)}
+\hlkwd{plot}\hlstd{(hudba}\hlopt{~}\hlstd{fsport,} \hlkwc{xlab}\hlstd{=}\hlstr{"Počet hodin sportovních aktivit týdně"}\hlstd{,}
+    \hlkwc{ylab}\hlstd{=}\hlstr{"Hraje na hudební nástroj"}\hlstd{)}
 \end{alltt}
-\begin{verbatim}
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##       2       4       6       6       8      10
-\end{verbatim}
 \end{kframe}
+\includegraphics[width=\maxwidth]{figure/test-1} 
+
 \end{knitrout}
 \end{document}
