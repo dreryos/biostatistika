@@ -1,0 +1,37 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[paper=a4paper, nomarginpar, foot=1.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{siunitx}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{Marek Földi}
+\fancyhead[RE,LO]{Úkol 2}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+
+\addto\captionsczech{\renewcommand{\figurename}{Graf. č.}}
+
+\begin{document}
+
+\subsection*{Příklad 1:}
+
+\subsection*{Příklad 2:}
+
+\subsection*{Příklad 3:}
+
+\subsection*{Příklad 4:}
+<<>>=
+# Create a sequence of numbers
+X = 2:10
+
+# Display basic statistical measures
+summary(X)
+
+@
+
+\end{document}
