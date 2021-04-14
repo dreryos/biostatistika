@@ -19,19 +19,56 @@
 \begin{document}
 
 \subsection*{Příklad 1:}
+\subsubsection*{a}
+Všechny čtveřice:
+\[ m = \dbinom{32}{4} = 35\ 960\]
+Čtveřice ve kterých bude alespoň jedno eso:
+\[ n = \dbinom{4}{1} \cdot \dbinom{28}{3} = 4 \cdot 3\ 276 = 13 104\]
+Pravděpodobnost, že vytáhnu čtveřici, ve které bude alespoň jedno eso:
+\[ P(A) = \frac{13 104}{35\ 960} =  0,3644 = 36,44\ \%\]
+
+\subsubsection*{b}
+Čtveřice, která bude mít stejnou barvu:
+\[ n = 4 \cdot \dbinom{8}{4} = 280 \]
+Pravděpodobnost, že vytáhnu čtveřici, která bude mít stejnou barvu:
+\[ P(B) = \frac{280}{35\ 960} =  0,0078 = 0,78\ \%\]
+
+\subsubsection*{c}
+Jevy A~a B jsou závislé.
 
 \subsection*{Příklad 2:}
-
+%https://portal.matematickabiologie.cz/index.php?pg=aplikovana-analyza-klinickych-a-biologickych-dat--biostatistika-pro-matematickou-biologii--vztah-pravdepodobnosti-statistiky-a-biostatistiky--senzitivita-specificita-a-prediktivni-hodnoty
+\[ P(N|T) = \frac{P(T|N) \cdot P(N)}{P(T|N) \cdot P(N) + P(T|\bar{N} \cdot P(\bar{N}))}\]
+\[ P(N|T) = \frac{0,71 \cdot 0,00139}{0,71 \cdot 0,00139 + (1 - 0,95) \cdot (1 - 0,00139)} = \Sexpr{format((0.71 * 0.00139)/(0.71 * 0.00139 + (1 - 0.95) * (1 - 0.00139)),decimal.mark=",")} = 1,94\ \%\]
+Dítě s pozitivním testem je s 1,94\% pravděpodobností pozitivní.
 \subsection*{Příklad 3:}
+\subsubsection*{a}
+<<>>=
+sum(seq(0,50,1)*dbinom(0:50, size = 50, prob = 0.8))
+sum((seq(0,50,1)-sum(seq(0,50,1)*dbinom(0:50, size = 50, prob = 0.8)))^2
+    *dbinom(0:50, size = 50, prob = 0.8))
+@
+Hodnota $X$ má binomické rozdělení. Střední hodnota je $\Sexpr{sum(seq(0,50,1)*dbinom(0:50, size = 50, prob = 0.8))}$ a rozptyl $\Sexpr{sum((seq(0,50,1)-sum(seq(0,50,1)*dbinom(0:50, size = 50, prob = 0.8)))^2*dbinom(0:50, size = 50, prob = 0.8))}$.
+\subsubsection*{b}
+<<>>=
+pbinom(35, size=50, prob=0.8, lower.tail=TRUE)
+@
+Pravděpodobnost, že přijde méně než 35 student je $\Sexpr{format(round(pbinom(35, size=50, prob=0.8, lower.tail=TRUE) *100, 2), decimal.mark=",")}$ \%.
+\subsubsection*{c}
+<<>>=
+qbinom(c(0.05), size=50, prob=0.8, lower.tail=F)
+@
+V posluchárně potřebujeme 44 míst.
 
 \subsection*{Příklad 4:}
+\subsubsection*{a}
 <<>>=
-# Create a sequence of numbers
-X = 2:10
-
-# Display basic statistical measures
-summary(X)
-
+pnorm(c(70), mean=60, sd=sqrt(400), lower.tail=FALSE)
 @
-
+30,9 \% žáků bylo lepší než Lucie.
+\subsubsection*{b}
+<<>>=
+qnorm(c(0.05), mean=60, sd=sqrt(400), lower.tail=FALSE)
+@
+Aby se žák dostal mezi nejlepších 5 \%, musel by dosáhnout 92,9 bodů.
 \end{document}

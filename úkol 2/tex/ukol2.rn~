@@ -1,0 +1,57 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[paper=a4paper, nomarginpar, foot=1.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{siunitx}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{Marek Földi}
+\fancyhead[RE,LO]{Úkol 2}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+
+\addto\captionsczech{\renewcommand{\figurename}{Graf. č.}}
+
+\begin{document}
+
+\subsection*{Příklad 1:}
+\subsubsection*{a}
+Všechny čtveřice:
+\[ m = \dbinom{32}{4} = 35\ 960\]
+Čtveřice ve kterých bude alespoň jedno eso:
+\[ n = \dbinom{4}{1} \cdot \dbinom{28}{3} = 4 \cdot 3\ 276 = 13 104\]
+Pravděpodobnost, že vytáhnu čtveřici, ve které bude alespoň jedno eso:
+\[ P(A) = \frac{13 104}{35\ 960} =  0,3644 = 36,44 \%\]
+
+\subsubsection*{b}
+Čtveřice, která bude mít stejnou barvu:
+\[ n = \dbinom{8}{4} =  =  \]
+Pravděpodobnost, že vytáhnu čtveřici, která bude mít stejnou barvu:
+\[ P(B) = \frac{4 096}{35\ 960} =  0,1139 = 11,39 \%\]
+
+\subsubsection*{c}
+Jevy A a B jsou nezávislé.
+
+\subsection*{Příklad 2:}
+
+\subsection*{Příklad 3:}
+<<>>=
+dbinom(0, size = 50, prob = 0.8)
+@
+
+\subsection*{Příklad 4:}
+\subsubsection*{a}
+<<>>=
+pnorm(c(70), mean=60, sd=sqrt(400), lower.tail=FALSE)
+@
+30,9 \% žáků bylo lepší než Lucie.
+\subsubsection*{b}
+<<>>=
+qnorm(c(0.05), mean=60, sd=sqrt(400), lower.tail=FALSE)
+@
+Aby se žák dostal mezi nejlepších 5 \%, musel by dosáhnout 92,9 bodů.
+\end{document}

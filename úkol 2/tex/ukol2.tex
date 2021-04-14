@@ -1,0 +1,164 @@
+\documentclass[twoside]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[paper=a4paper, nomarginpar, foot=1.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{siunitx}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{Marek Földi}
+\fancyhead[RE,LO]{Úkol 2}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+
+\addto\captionsczech{\renewcommand{\figurename}{Graf. č.}}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+\subsection*{Příklad 1:}
+\subsubsection*{a}
+Všechny čtveřice:
+\[ m = \dbinom{32}{4} = 35\ 960\]
+Čtveřice ve kterých bude alespoň jedno eso:
+\[ n = \dbinom{4}{1} \cdot \dbinom{28}{3} = 4 \cdot 3\ 276 = 13 104\]
+Pravděpodobnost, že vytáhnu čtveřici, ve které bude alespoň jedno eso:
+\[ P(A) = \frac{13 104}{35\ 960} =  0,3644 = 36,44\ \%\]
+
+\subsubsection*{b}
+Čtveřice, která bude mít stejnou barvu:
+\[ n = 4 \cdot \dbinom{8}{4} = 280 \]
+Pravděpodobnost, že vytáhnu čtveřici, která bude mít stejnou barvu:
+\[ P(B) = \frac{280}{35\ 960} =  0,0078 = 0,78\ \%\]
+
+\subsubsection*{c}
+Jevy A~a B jsou závislé.
+
+\subsection*{Příklad 2:}
+%https://portal.matematickabiologie.cz/index.php?pg=aplikovana-analyza-klinickych-a-biologickych-dat--biostatistika-pro-matematickou-biologii--vztah-pravdepodobnosti-statistiky-a-biostatistiky--senzitivita-specificita-a-prediktivni-hodnoty
+\[ P(N|T) = \frac{P(T|N) \cdot P(N)}{P(T|N) \cdot P(N) + P(T|\bar{N} \cdot P(\bar{N}))}\]
+\[ P(N|T) = \frac{0,71 \cdot 0,00139}{0,71 \cdot 0,00139 + (1 - 0,95) \cdot (1 - 0,00139)} = 0,01938237 = 1,94\ \%\]
+Dítě s pozitivním testem je s 1,94\% pravděpodobností pozitivní.
+\subsection*{Příklad 3:}
+\subsubsection*{a}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{sum}\hlstd{(}\hlkwd{seq}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{50}\hlstd{,}\hlnum{1}\hlstd{)}\hlopt{*}\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlopt{:}\hlnum{50}\hlstd{,} \hlkwc{size} \hlstd{=} \hlnum{50}\hlstd{,} \hlkwc{prob} \hlstd{=} \hlnum{0.8}\hlstd{))}
+\end{alltt}
+\begin{verbatim}
+## [1] 40
+\end{verbatim}
+\begin{alltt}
+\hlkwd{sum}\hlstd{((}\hlkwd{seq}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{50}\hlstd{,}\hlnum{1}\hlstd{)}\hlopt{-}\hlkwd{sum}\hlstd{(}\hlkwd{seq}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{50}\hlstd{,}\hlnum{1}\hlstd{)}\hlopt{*}\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlopt{:}\hlnum{50}\hlstd{,} \hlkwc{size} \hlstd{=} \hlnum{50}\hlstd{,} \hlkwc{prob} \hlstd{=} \hlnum{0.8}\hlstd{)))}\hlopt{^}\hlnum{2}
+    \hlopt{*}\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlopt{:}\hlnum{50}\hlstd{,} \hlkwc{size} \hlstd{=} \hlnum{50}\hlstd{,} \hlkwc{prob} \hlstd{=} \hlnum{0.8}\hlstd{))}
+\end{alltt}
+\begin{verbatim}
+## [1] 8
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+Hodnota $X$ má binomické rozdělení. Střední hodnota je $40$ a rozptyl $8$.
+\subsubsection*{b}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{pbinom}\hlstd{(}\hlnum{35}\hlstd{,} \hlkwc{size}\hlstd{=}\hlnum{50}\hlstd{,} \hlkwc{prob}\hlstd{=}\hlnum{0.8}\hlstd{,} \hlkwc{lower.tail}\hlstd{=}\hlnum{TRUE}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.06072208
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+Pravděpodobnost, že přijde méně než 35 student je $6,07$ \%.
+\subsubsection*{c}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{qbinom}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{0.05}\hlstd{),} \hlkwc{size}\hlstd{=}\hlnum{50}\hlstd{,} \hlkwc{prob}\hlstd{=}\hlnum{0.8}\hlstd{,} \hlkwc{lower.tail}\hlstd{=F)}
+\end{alltt}
+\begin{verbatim}
+## [1] 44
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+V posluchárně potřebujeme 44 míst.
+
+\subsection*{Příklad 4:}
+\subsubsection*{a}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{pnorm}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{70}\hlstd{),} \hlkwc{mean}\hlstd{=}\hlnum{60}\hlstd{,} \hlkwc{sd}\hlstd{=}\hlkwd{sqrt}\hlstd{(}\hlnum{400}\hlstd{),} \hlkwc{lower.tail}\hlstd{=}\hlnum{FALSE}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.3085375
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+30,9 \% žáků bylo lepší než Lucie.
+\subsubsection*{b}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{qnorm}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{0.05}\hlstd{),} \hlkwc{mean}\hlstd{=}\hlnum{60}\hlstd{,} \hlkwc{sd}\hlstd{=}\hlkwd{sqrt}\hlstd{(}\hlnum{400}\hlstd{),} \hlkwc{lower.tail}\hlstd{=}\hlnum{FALSE}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 92.89707
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+Aby se žák dostal mezi nejlepších 5 \%, musel by dosáhnout 92,9 bodů.
+\end{document}

@@ -1,0 +1,143 @@
+\documentclass[twoside]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[paper=a4paper, nomarginpar, foot=1.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{siunitx}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{Marek Földi}
+\fancyhead[RE,LO]{Úkol 3}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+
+\addto\captionsczech{\renewcommand{\figurename}{Graf. č.}}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+
+
+
+\subsection*{Příklad 1:}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{t.test}\hlstd{(tep}\hlopt{~}\hlstd{pohlavi,} \hlkwc{alternative}\hlstd{=}\hlstr{'two.sided'}\hlstd{,} \hlkwc{conf.level}\hlstd{=}\hlnum{.95}\hlstd{,} \hlkwc{var.equal}\hlstd{=}\hlnum{FALSE}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  tep by pohlavi
+## t = -1.1742, df = 63.86, p-value = 0.2447
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -7.467883  1.939116
+## sample estimates:
+## mean in group F mean in group M 
+##        75.46535        78.22973
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+Jelikož je p-hodnota $>$~0,05, můžeme říci, že muži i~ženy mají stejnou střední hodnotu tepové frekvence. V~konfidenčním intervalu rozdílů středních hodnot vidíme že je zahrnuta i~nula, je tu tudíž možnost rovnosti středních hodnot.
+
+\subsection*{Příklad 2:}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{t.test}\hlstd{(biceps.pravy, biceps.levy,} \hlkwc{alternative}\hlstd{=}\hlstr{'two.sided'}\hlstd{,} \hlkwc{conf.level}\hlstd{=}\hlnum{.95}\hlstd{,} \hlkwc{paired}\hlstd{=}\hlnum{TRUE}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## 
+## 	Paired t-test
+## 
+## data:  biceps.pravy and biceps.levy
+## t = 4.3316, df = 139, p-value = 2.817e-05
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  1.502516 4.026055
+## sample estimates:
+## mean of the differences 
+##                2.764286
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+Jelikož je p-hodnota $<$~0,05, tudíž střední hodnoty levého a pravého bicepsu nejsou stejné. Z~konfidenčního intervalu můžeme odhadnout, že střední hodnota pravého bicepsu je větší nejméně o~1,5~\si{\milli\metre} avšak maximálně o~4,02~\si{\milli\metre} než levého bicepsu. Z~bodového odhadu rozdílu průměrů lze vyčíst, že průměr pravého bicepsu je o~2,76~\si{\milli\metre} větší než bicepsu levého.
+
+\subsection*{Příklad 3:}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{t.test}\hlstd{(malicek.levy[pohlavi} \hlopt{==} \hlstr{"F"}\hlstd{],} \hlkwc{alternative}\hlstd{=}\hlstr{'two.sided'}\hlstd{,} \hlkwc{mu}\hlstd{=}\hlnum{75}\hlstd{,} \hlkwc{conf.level}\hlstd{=}\hlnum{.95}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## 
+## 	One Sample t-test
+## 
+## data:  malicek.levy[pohlavi == "F"]
+## t = -7.1759, df = 101, p-value = 1.232e-10
+## alternative hypothesis: true mean is not equal to 75
+## 95 percent confidence interval:
+##  68.39254 71.25452
+## sample estimates:
+## mean of x 
+##  69.82353
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+Jelikož je p-hodnota $<$~0,05, můžeme říci, že střední hodnota střední hodnoty délky pravého malíčku pro studentky není 75~\si{\milli\metre}. Aritmetický průměr měření je 69,82~\si{\milli\metre}. Skutečná střední hodnota měření se nachází v~intervalu 68,39~\si{\milli\metre} až 71,25~\si{\milli\metre} s~95\% pravděpodobností.
+\end{document}

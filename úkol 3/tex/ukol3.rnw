@@ -1,0 +1,43 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[paper=a4paper, nomarginpar, foot=1.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{siunitx}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{Marek Földi}
+\fancyhead[RE,LO]{Úkol 3}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+
+\addto\captionsczech{\renewcommand{\figurename}{Graf. č.}}
+
+\begin{document}
+<<echo=FALSE, cache=FALSE>>=
+library(knitr)
+read_chunk("C:\\Users\\marek\\Desktop\\biostatistika\\úkol 3\\ukol3.R")
+@
+
+
+<<nacteni, include=FALSE>>=
+@
+
+\subsection*{Příklad 1:}
+<<pr1>>=
+@
+Jelikož je p-hodnota $>$~0,05, můžeme říci, že muži i~ženy mají stejnou střední hodnotu tepové frekvence. V~konfidenčním intervalu rozdílů středních hodnot vidíme že je zahrnuta i~nula, je tu tudíž možnost rovnosti středních hodnot.
+
+\subsection*{Příklad 2:}
+<<pr2>>=
+@
+Jelikož je p-hodnota $<$~0,05, tudíž střední hodnoty levého a pravého bicepsu nejsou stejné. Z~konfidenčního intervalu můžeme odhadnout, že střední hodnota pravého bicepsu je větší nejméně o~1,5~\si{\milli\metre} avšak maximálně o~4,02~\si{\milli\metre} než levého bicepsu. Z~bodového odhadu rozdílu průměrů lze vyčíst, že průměr pravého bicepsu je o~2,76~\si{\milli\metre} větší než bicepsu levého.
+
+\subsection*{Příklad 3:}
+<<pr3>>=
+@
+Jelikož je p-hodnota $<$~0,05, můžeme říci, že střední hodnota střední hodnoty délky pravého malíčku pro studentky není 75~\si{\milli\metre}. Aritmetický průměr měření je 69,82~\si{\milli\metre}. Skutečná střední hodnota měření se nachází v~intervalu 68,39~\si{\milli\metre} až 71,25~\si{\milli\metre} s~95\% pravděpodobností.
+\end{document}
