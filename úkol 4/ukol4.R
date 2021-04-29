@@ -32,7 +32,8 @@ local({
 
 ## ---- pr2
 plotMeans(loglym, infekt, pohl, error.bars="se", connect=TRUE, legend.pos="farright")
-mod2 <- lm(loglym ~ infekt+pohl, data=lymfo, contrasts=list(infekt="contr.Sum", pohl="contr.Sum"))
+mod2 <- lm(loglym ~ infekt + pohl, data=lymfo, contrasts=list(infekt="contr.Sum", 
+  pohl="contr.Sum"))
 Anova(mod2)
 Tapply(loglym ~ infekt + pohl, mean, na.action=na.omit, data=lymfo) # means
 Tapply(loglym ~ infekt + pohl, sd, na.action=na.omit, data=lymfo) 

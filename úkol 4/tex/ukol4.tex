@@ -64,7 +64,7 @@
 \fancyfoot{} % clear all footer fields
 \fancyfoot[LE,RO]{\thepage}
 
-\addto\captionsczech{\renewcommand{\figurename}{Graf. č.}}
+\addto\captioneurosyfilisczech{\renewcommand{\figurename}{Graf. č.}}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 
@@ -119,14 +119,14 @@
 ## 
 ## Linear Hypotheses:
 ##              Estimate Std. Error t value Pr(>|t|)    
-## HV - EV == 0   0.7694     0.2908   2.646  0.06420 .  
+## HV - EV == 0   0.7694     0.2908   2.646  0.06445 .  
 ## KE - EV == 0  -0.2566     0.2379  -1.079  0.81270    
 ## NB - EV == 0   0.1005     0.2366   0.425  0.99290    
 ## NS - EV == 0  -1.6076     0.3383  -4.753  < 0.001 ***
-## KE - HV == 0  -1.0260     0.2897  -3.541  0.00438 ** 
-## NB - HV == 0  -0.6688     0.2887  -2.317  0.14021    
+## KE - HV == 0  -1.0260     0.2897  -3.541  0.00448 ** 
+## NB - HV == 0  -0.6688     0.2887  -2.317  0.14025    
 ## NS - HV == 0  -2.3770     0.3765  -6.313  < 0.001 ***
-## NB - KE == 0   0.3571     0.2353   1.518  0.54479    
+## NB - KE == 0   0.3571     0.2353   1.518  0.54484    
 ## NS - KE == 0  -1.3510     0.3373  -4.005  < 0.001 ***
 ## NS - NB == 0  -1.7081     0.3364  -5.077  < 0.001 ***
 ## ---
@@ -141,22 +141,22 @@
 ## 
 ## Fit: aov(formula = loglym ~ infekt, data = lymfo)
 ## 
-## Quantile = 2.743
+## Quantile = 2.7435
 ## 95% family-wise confidence level
 ##  
 ## 
 ## Linear Hypotheses:
 ##              Estimate lwr      upr     
-## HV - EV == 0  0.76939 -0.02829  1.56707
-## KE - EV == 0 -0.25660 -0.90910  0.39590
-## NB - EV == 0  0.10054 -0.54851  0.74960
-## NS - EV == 0 -1.60760 -2.53542 -0.67977
-## KE - HV == 0 -1.02599 -1.82073 -0.23125
-## NB - HV == 0 -0.66885 -1.46077  0.12307
-## NS - HV == 0 -2.37699 -3.40981 -1.34417
-## NB - KE == 0  0.35714 -0.28830  1.00259
-## NS - KE == 0 -1.35100 -2.27630 -0.42569
-## NS - NB == 0 -1.70814 -2.63102 -0.78526
+## HV - EV == 0  0.76939 -0.02842  1.56721
+## KE - EV == 0 -0.25660 -0.90921  0.39601
+## NB - EV == 0  0.10054 -0.54862  0.74971
+## NS - EV == 0 -1.60760 -2.53558 -0.67961
+## KE - HV == 0 -1.02599 -1.82087 -0.23112
+## NB - HV == 0 -0.66885 -1.46090  0.12320
+## NS - HV == 0 -2.37699 -3.40998 -1.34400
+## NB - KE == 0  0.35714 -0.28841  1.00269
+## NS - KE == 0 -1.35100 -2.27645 -0.42554
+## NS - NB == 0 -1.70814 -2.63117 -0.78511
 ## 
 ##   EV   HV   KE   NB   NS 
 ## "bc"  "c"  "b" "bc"  "a"
@@ -165,8 +165,7 @@
 \includegraphics[width=\maxwidth]{figure/pr1-1} 
 
 \end{knitrout}
-Střední hodnoty se liší, zamítám stejnost
-pairwise comparison, popsat rozdíly, vyšly signifigantní
+Jelikož hodnota $\text{Pr}(>\text{F})$ je menší než 0,001 usuzujeme že mezi hodnotami logaritmů středních hodnot lymfocytů jsou signifikantní rozdíly. Z Tukeyova testu můžeme zjistit, že u dvojic neurosyfilis - enteroviry, neurosyfilis - herpes viry, neurosyfilis - klíšťová encefalitida a neurosyfilis - neuroborelióza byly rozdíly signifikantní a rozdíl u dvojice klíšťová encefalitida - herpes viry byl menší, ale přesto signifikantní $\text{Pr}(>\text{F})$ je menší než 0,05 a u dvojice herpes viry - enteroviry rozdíl těsně obsahuje i nulový rozdíl. 
 
 \subsection*{Příklad 2:}
 \begin{knitrout}
@@ -177,7 +176,8 @@ pairwise comparison, popsat rozdíly, vyšly signifigantní
 \end{kframe}
 \includegraphics[width=\maxwidth]{figure/pr2-1} 
 \begin{kframe}\begin{alltt}
-\hlstd{mod2} \hlkwb{<-} \hlkwd{lm}\hlstd{(loglym} \hlopt{~} \hlstd{infekt}\hlopt{+}\hlstd{pohl,} \hlkwc{data}\hlstd{=lymfo,} \hlkwc{contrasts}\hlstd{=}\hlkwd{list}\hlstd{(}\hlkwc{infekt}\hlstd{=}\hlstr{"contr.Sum"}\hlstd{,} \hlkwc{pohl}\hlstd{=}\hlstr{"contr.Sum"}\hlstd{))}
+\hlstd{mod2} \hlkwb{<-} \hlkwd{lm}\hlstd{(loglym} \hlopt{~} \hlstd{infekt} \hlopt{+} \hlstd{pohl,} \hlkwc{data}\hlstd{=lymfo,} \hlkwc{contrasts}\hlstd{=}\hlkwd{list}\hlstd{(}\hlkwc{infekt}\hlstd{=}\hlstr{"contr.Sum"}\hlstd{,}
+  \hlkwc{pohl}\hlstd{=}\hlstr{"contr.Sum"}\hlstd{))}
 \hlkwd{Anova}\hlstd{(mod2)}
 \end{alltt}
 \begin{verbatim}
@@ -230,6 +230,6 @@ pairwise comparison, popsat rozdíly, vyšly signifigantní
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-dobrý si udělat plot of means, interakce tam nejsou
+Pomocí grafu plot of means můžeme vidět, že interakce mezi pohlavím a druhem infekce není, jen u klíšťová encefalitidy se průměry přibližují. I v modelu bez interakcí můžeme vidět, že oba faktory jsou signifikantní jsou menší než 0,05. Z toho lze usoudit, že pohlaví nijak neinteraguje s druhem infekce.
 
 \end{document}
