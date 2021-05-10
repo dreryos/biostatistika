@@ -1,0 +1,39 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[paper=a4paper, nomarginpar, foot=1.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{siunitx}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{Marek Földi}
+\fancyhead[RE,LO]{Úkol 4}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+
+\addto\captioneurosyfilisczech{\renewcommand{\figurename}{Graf. č.}}
+
+\begin{document}
+<<echo=FALSE, cache=FALSE>>=
+library(knitr)
+read_chunk("C:\\Users\\marek\\Desktop\\biostatistika\\úkol 4\\ukol4.R")
+@
+
+
+<<nacteni, include=FALSE>>=
+@
+
+\subsection*{Příklad 1:}
+<<pr1>>=
+@
+Jelikož hodnota $\text{Pr}(>\text{F})$ je menší než 0,001 usuzujeme že mezi hodnotami logaritmů středních hodnot lymfocytů jsou signifikantní rozdíly. Z Tukeyova testu můžeme zjistit, že u dvojic neurosyfilis - enteroviry, neurosyfilis - herpes viry, neurosyfilis - klíšťová encefalitida a neurosyfilis - neuroborelióza byly rozdíly signifikantní a rozdíl u dvojice klíšťová encefalitida - herpes viry byl menší, ale přesto signifikantní $\text{Pr}(>\text{F})$ je menší než 0,05 a u dvojice herpes viry - enteroviry rozdíl těsně obsahuje i nulový rozdíl. 
+
+\subsection*{Příklad 2:}
+<<pr2>>=
+@
+Pomocí grafu plot of means můžeme vidět, že interakce mezi pohlavím a druhem infekce není, jen u klíšťová encefalitidy se průměry přibližují. I v modelu bez interakcí můžeme vidět, že oba faktory jsou signifikantní jsou menší než 0,05. Z toho lze usoudit, že pohlaví nijak neinteraguje s druhem infekce.
+
+\end{document}

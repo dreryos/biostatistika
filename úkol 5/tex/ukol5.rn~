@@ -1,0 +1,47 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[paper=a4paper, nomarginpar, foot=1.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{siunitx}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{Marek Földi}
+\fancyhead[RE,LO]{Úkol 5}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+
+\addto\captioneurosyfilisczech{\renewcommand{\figurename}{Graf. č.}}
+
+\begin{document}
+<<echo=FALSE, cache=FALSE>>=
+library(knitr)
+read_chunk("C:\\Users\\marek\\Desktop\\biostatistika\\úkol 5\\ukol5.R")
+@
+
+
+<<nacteni, include=FALSE>>=
+@
+
+\subsection*{Příklad 1:}
+<<pr1>>=
+@
+Závislost velikosti boty na výšce je značná. R-squared je skoro 0,76, takže až 76\% velikostí bot lze vysvětlit výškou. Také koeficient pravděpodobnosti je menší než 0,05 a tudíž velikost boty an výšce závisí.
+
+\newpage
+<<plot1, fig.pos="h", fig.cap="Předpoklady modelu", echo=FALSE>>=
+@
+Z grafů modelu můžeme pozorovat, že model předpoklady splňuje a nevyskytují se v něm vzdálená nebo nestandartní pozorovaní, která by model významně ovlivňovala.
+\subsection*{Příklad 2:}
+<<pr2>>=
+@
+Z těchto dvou modelů můžeme usoudit, že pohlaví má na velikost boty vliv. Z modelu 3 si můžeme všimnout, že pohlaví s výškou neinteraguje. Tímto modelem můžeme vysvětlit 82 \% velikostí bot. Muž s výškou 185 cm bude nejspíš mít velikost boty 44,1, vypočteno pomocí: ${6,91117 + 0,18927 \cdot 185 + 2,177 = 44,10312}$
+
+\subsection*{Příklad 3:}
+<<pr3>>=
+@
+V čtvrtém modelu máme všechny navrhované regresory, ale také můžeme pozorovat, že velikost pravého zápěstí a velikost pravého malíčku jsou nesignifikantní. V pátém modelu jsou zahrnuty pouze signifikantnější regresory, avšak velikost pravého bicepsu je měně signifikantní a záporná, to nám může značit, že tento regresor upravuje jiný.
+\end{document}
