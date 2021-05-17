@@ -1,0 +1,43 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[paper=a4paper, nomarginpar, foot=1.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{siunitx}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{Marek Földi}
+\fancyhead[RE,LO]{Úkol 6}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+
+\addto\captioneurosyfilisczech{\renewcommand{\figurename}{Graf. č.}}
+
+\begin{document}
+<<echo=FALSE, cache=FALSE>>=
+library(knitr)
+read_chunk("C:\\Users\\marek\\Desktop\\biostatistika\\úkol 6\\ukol6.R")
+@
+
+
+<<nacteni, include=FALSE>>=
+@
+
+\subsection*{Příklad 1:}
+<<pr1>>=
+@
+Rozdělení pacientů s~migrénou je jiné než rozdělení obyvatel do okresů. V~okresu A~i D je výrazně více pacientů s~migrénou než bychom očekávali a u~ostatních okresů je méně pacientů než bychom očekávali. Je možné že tento jev bude souviset s~vyšším znečištěním těchto okresů, ale na to je potřeba další šetření.
+
+\subsection*{Příklad 2:}
+<<pr2>>=
+@
+Lék se v testovaném vzorku neprokázal jako výrazně účinný na to abychom nevyloučili, že spíše působil náhodou.
+
+\subsection*{Příklad 3:}
+<<pr3>>=
+@
+Kofein může souviset s~výsledkem těhotenství, to nám potvrzuje $\text{chi}^2$ test i Fisherův test, ve kterých vyšla p hodnota pod 0,05. Z~porovnání s~předpokládanými výsledky, můžeme usuzovat, že kofein může souviset s~předčasnými porody.
+\end{document}

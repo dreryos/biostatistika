@@ -1,0 +1,172 @@
+\documentclass[twoside]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[paper=a4paper, nomarginpar, foot=1.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{siunitx}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{Marek Földi}
+\fancyhead[RE,LO]{Úkol 6}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
+
+\addto\captioneurosyfilisczech{\renewcommand{\figurename}{Graf. č.}}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+
+
+
+\subsection*{Příklad 1:}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{poz} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{24}\hlstd{,} \hlnum{9}\hlstd{,} \hlnum{13}\hlstd{,} \hlnum{22}\hlstd{,} \hlnum{9}\hlstd{)}
+\hlstd{pravd} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{0.21}\hlstd{,} \hlnum{0.15}\hlstd{,} \hlnum{0.26}\hlstd{,} \hlnum{0.16}\hlstd{,} \hlnum{0.22}\hlstd{)}
+\hlkwd{chisq.test}\hlstd{(poz,} \hlkwc{p} \hlstd{= pravd)}
+\end{alltt}
+\begin{verbatim}
+## 
+## 	Chi-squared test for given probabilities
+## 
+## data:  poz
+## X-squared = 18.143, df = 4, p-value = 0.001157
+\end{verbatim}
+\begin{alltt}
+\hlkwd{chisq.test}\hlstd{(poz,} \hlkwc{p} \hlstd{= pravd)}\hlopt{$}\hlstd{expected}
+\end{alltt}
+\begin{verbatim}
+## [1] 16.17 11.55 20.02 12.32 16.94
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+Rozdělení pacientů s~migrénou je jiné než rozdělení obyvatel do okresů. V~okresu A~i D je výrazně více pacientů s~migrénou než bychom očekávali a u~ostatních okresů je méně pacientů než bychom očekávali. Je možné že tento jev bude souviset s~vyšším znečištěním těchto okresů, ale na to je potřeba další šetření.
+
+\subsection*{Příklad 2:}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{tab2} \hlkwb{<-} \hlkwd{matrix}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{25}\hlstd{,} \hlnum{19}\hlstd{,} \hlnum{10}\hlstd{,} \hlnum{18}\hlstd{),}\hlnum{2}\hlstd{,}\hlnum{2}\hlstd{,} \hlkwc{byrow} \hlstd{= T)}
+\hlkwd{mcnemar.test}\hlstd{(tab2 ,}\hlkwc{correct} \hlstd{= F)}
+\end{alltt}
+\begin{verbatim}
+## 
+## 	McNemar's Chi-squared test
+## 
+## data:  tab2
+## McNemar's chi-squared = 2.7931, df = 1, p-value = 0.09467
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+Lék se v testovaném vzorku neprokázal jako výrazně účinný na to abychom nevyloučili, že spíše působil náhodou.
+
+\subsection*{Příklad 3:}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{tab3} \hlkwb{<-} \hlkwd{matrix}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{31}\hlstd{,} \hlnum{23}\hlstd{,} \hlnum{38}\hlstd{,} \hlnum{11}\hlstd{,} \hlnum{17}\hlstd{,} \hlnum{8}\hlstd{,} \hlnum{8}\hlstd{,} \hlnum{10}\hlstd{,} \hlnum{4}\hlstd{),} \hlnum{3}\hlstd{,} \hlnum{3}\hlstd{,} \hlkwc{byrow} \hlstd{= T)}
+\hlkwd{dimnames}\hlstd{(tab3)} \hlkwb{<-} \hlkwd{list}\hlstd{(}\hlkwc{rows} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"1"}\hlstd{,} \hlstr{"2"}\hlstd{,} \hlstr{"3"}\hlstd{),} \hlkwc{columns} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"1"}\hlstd{,} \hlstr{"2"}\hlstd{,} \hlstr{"3"}\hlstd{))}
+\hlstd{tab3}
+\end{alltt}
+\begin{verbatim}
+##     columns
+## rows  1  2  3
+##    1 31 23 38
+##    2 11 17  8
+##    3  8 10  4
+\end{verbatim}
+\begin{alltt}
+\hlstd{test3} \hlkwb{<-} \hlkwd{chisq.test}\hlstd{(tab3,} \hlkwc{correct} \hlstd{= F)}
+\hlstd{test3}
+\end{alltt}
+\begin{verbatim}
+## 
+## 	Pearson's Chi-squared test
+## 
+## data:  tab3
+## X-squared = 9.7194, df = 4, p-value = 0.04543
+\end{verbatim}
+\begin{alltt}
+\hlstd{test3}\hlopt{$}\hlstd{expected}
+\end{alltt}
+\begin{verbatim}
+##     columns
+## rows         1         2         3
+##    1 30.666667 30.666667 30.666667
+##    2 12.000000 12.000000 12.000000
+##    3  7.333333  7.333333  7.333333
+\end{verbatim}
+\begin{alltt}
+\hlkwd{remove}\hlstd{(test3)}
+\hlkwd{fisher.test}\hlstd{(tab3)}
+\end{alltt}
+\begin{verbatim}
+## 
+## 	Fisher's Exact Test for Count Data
+## 
+## data:  tab3
+## p-value = 0.04524
+## alternative hypothesis: two.sided
+\end{verbatim}
+\begin{alltt}
+\hlkwd{remove}\hlstd{(tab3)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Kofein může souviset s~výsledkem těhotenství, to nám potvrzuje $\text{chi}^2$ test i Fisherův test, ve kterých vyšla p hodnota pod 0,05. Z~porovnání s~předpokládanými výsledky, můžeme usuzovat, že kofein může souviset s~předčasnými porody.
+\end{document}
